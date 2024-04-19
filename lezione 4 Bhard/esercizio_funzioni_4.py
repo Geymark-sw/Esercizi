@@ -12,4 +12,4 @@ def check_each(l:list):
 
 l:list = [2,5,10,]
 
-check_each(l)
+check_each(l) lll
