@@ -5,7 +5,7 @@ def check_each(l:list):
             print(f"Il numero {i} è maggiore di 5")
 
         elif i < 5:
-            print(f"Il numero {i} è maggiore di 5")
+            print(f"Il numero {i} è minore di 5")
 
         else:
             print(f"Il numero {i} è uguale a 5")
