@@ -31,7 +31,7 @@ l: list[int] = []
 while(True):
     l.append(int(input("Inserisci un numero:")))
 
-    ver: str = input("Vuoi inserire un nuovo numero nella lista? si/no")
+    ver: str = input("Vuoi inserire un nuovo numero nella lista? si/no ")
 
     if ver.lower() != "si":
         print(majority_element(l))
