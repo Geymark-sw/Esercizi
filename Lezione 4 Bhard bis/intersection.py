@@ -6,3 +6,6 @@ def intersection(nums1: list[int], nums2: list[int]) -> list[int]:
         x =
 
     for i in range(len())
+
+
+    #DEVI FARLO CON "IN"
