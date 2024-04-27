@@ -21,3 +21,9 @@ for i in p:
 
 print("RAGAZZI HO TROVATO UN TAVOLO PIÙ GRANDE, PROVO AD INVITARE ALTRE 3 PERSONE")
 
+p.insert(0,"Manuel Caruso")
+p.insert(2,"Lana Rhoades")
+p.append("Erik Barsi")
+
+for i in p:
+    print(f"Ciao {i}, ti andrebbe di uscire a cena?")
