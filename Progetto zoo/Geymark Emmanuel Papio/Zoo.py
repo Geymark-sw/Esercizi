@@ -34,7 +34,7 @@ class ZooKeeper:
         
         #se l'area disponibile della fence è maggiore uguale all'area dell'animele (height*width) agiungi alla fence sottraendo l'area disponibile
         
-        if fence.area >= round(animal.height * animal.width, 3):
+        if fence.area >= round(animal.height * animal.width, 3) and animal.preferred_habitat.lower() == fence.habitat.lower():
             fence.animals.append(animal)
             fence.area -= animal.height * animal.width
             animal.fence = fence
@@ -103,8 +103,11 @@ class Zoo:
 gey: ZooKeeper = ZooKeeper("Gey", "Papio", "1234")
 
 a1: Animal = Animal("Pippo", "Pupus", 25, 1.70, 0.6, "Continentale") #mettere il controllo dell'habitat, se è uguale alla fence
+a2: Animal = Animal("Topolino", "Tepus", 18, 3, 1.5)
 
-f1: Fence = Fence(5, 24, "Continentale",)        
+f1: Fence = Fence(5, 24, "Continentale",[])
+
+
 
 
             
