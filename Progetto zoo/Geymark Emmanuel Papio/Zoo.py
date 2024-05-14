@@ -137,6 +137,10 @@ z1: Zoo = Zoo(flist, zlist)
 z1.describe_zoo()
 
 
+# programma scritto
+# controlla funzione feed e altre funzioni
+
+
 
 
 
