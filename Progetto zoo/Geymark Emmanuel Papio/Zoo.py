@@ -30,7 +30,7 @@ class ZooKeeper:
         self.surname: str = surname
         self.id: str = id
 
-    def add_animal(animal: Animal, fence: Fence):
+    def add_animal(self, animal: Animal, fence: Fence):
         
         #se l'area disponibile della fence è maggiore uguale all'area dell'animele (height*width) agiungi alla fence sottraendo l'area disponibile
         
@@ -40,11 +40,11 @@ class ZooKeeper:
             animal.fence = fence
 
 
-    def remove_animal(animal: Animal, fence: Fence):
+    def remove_animal(self, animal: Animal, fence: Fence):
 
         fence.animals.remove(animal)
 
-    def feed(animal: Animal):
+    def feed(self, animal: Animal):
 
         if round(animal.height * 2 / 100 * animal.width * 2 / 100, 3) <= animal.fence.area:
             
@@ -54,9 +54,12 @@ class ZooKeeper:
             animal.height = round(animal.height * 102 / 100 , 3)
             animal.width = round(animal.width * 102 / 100 , 3)
             animal.health = round(animal.health * 101 / 100, 3)
+
+        else:
+            print("L'animale non  può essere nutrito perchè non c'è più spazio")
            
 
-    def clean(fence: Fence) -> float :
+    def clean(self, fence: Fence) -> float :
         tempo: float = 0
         area_animals: float = 0
 
@@ -100,12 +103,40 @@ class Zoo:
             
             print("#"*30)
 
+
 gey: ZooKeeper = ZooKeeper("Gey", "Papio", "1234")
 
-a1: Animal = Animal("Pippo", "Pupus", 25, 1.70, 0.6, "Continentale") #mettere il controllo dell'habitat, se è uguale alla fence
-a2: Animal = Animal("Topolino", "Tepus", 18, 3, 1.5)
+zlist: list[ZooKeeper] = [gey]
 
-f1: Fence = Fence(5, 24, "Continentale",[])
+a1: Animal = Animal("Pippo", "Pupus", 25, 3, 3, "Continentale") #mettere il controllo dell'habitat, se è uguale alla fence
+a2: Animal = Animal("Topolino", "Tepus", 18, 3, 1.5, "Artico")
+
+f1: Fence = Fence(18, 24, "Continentale",[])
+
+flist: list[Fence] = [f1]
+print(f1.area)
+gey.add_animal(a1, f1)
+print(f1.area)
+gey.add_animal(a2, f1)
+print(f1.area)
+
+for i in range(5**2):
+    
+    gey.feed(a1)
+
+    print(f"Area animale: {a1.height*a1.width}")
+    print(f"Salute animale: {a1.health}")
+    print(f"Area fence dentro animal: {a1.fence.area}")
+    print(f"Area fence oggetto: {f1.area}")
+
+z1: Zoo = Zoo(flist, zlist)
+
+
+
+
+z1.describe_zoo()
+
+
 
 
 
