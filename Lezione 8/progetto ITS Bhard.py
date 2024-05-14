@@ -24,7 +24,7 @@ class Building:
         
         self.name: str = name
         self.address: str = address
-        self.rooms: list = rooms
+        self.rooms: list = rooms#
         self.num_floors: int = num_floors
 
     def add_room(self, room: Room):
