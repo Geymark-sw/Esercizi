@@ -49,12 +49,12 @@ class ZooKeeper:
         if animal.height * 2 / 100 * animal.width * 2 / 100 <= animal.fence.area:
             
             # sottrarre l'area occupata dall'area residua
-            animal.fence.area = animal.fence.area - animal.height * 2 / 100 * animal.width * 2 / 100
-                                                    #2% dell'altezza     per      2%larghezza                
+            animal.fence.area = animal.fence.area - ((animal.height * 0.02) * animal.width * 1.02) + ((animal.width * 0.02) * animal.height * 1.02)
+                                                #2% dell'altezza*il totale della base INCREMENTATA    per      2%larghezza*il totale dell'altezza INCREMENTATA               
 
-            animal.height = animal.height * 102 / 100
-            animal.width = animal.width * 102 / 100
-            animal.health = animal.health * 101 / 100
+            animal.height = animal.height * 1.02
+            animal.width = animal.width * 1.02
+            animal.health = animal.health * 1.01
 
             #
         else:
@@ -129,12 +129,12 @@ print(f1.area)
 for i in range(5**2):
     
     gey.feed(a1) #feed
-    print(round(gey.clean(f1),3))
+    print(f"clean: {round(gey.clean(f1),3)}")
 
-    """print(f"Area animale: {round(a1.height*a1.width,3)}")
+    print(f"Area animale: {round(a1.height*a1.width,3)}")
     print(f"Salute animale: {round(a1.health,3)}")
     print(f"Area fence dentro animal: {round(a1.fence.area,3)}")
-    print(f"Area fence oggetto: {round(f1.area,3)}")"""
+    print(f"Area fence oggetto: {round(f1.area,3)}")
 
 
 
