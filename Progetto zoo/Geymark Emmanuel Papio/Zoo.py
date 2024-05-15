@@ -67,13 +67,13 @@ class ZooKeeper:
 
             area_animals = area_animals + round(i.height * i.width, 3)
 
-        tempo = round(area_animals / fence.area, 3)
-
         if fence.area == 0:
 
             print("L'area residua della fence è pari a 0, restituisco l'area occupata degli animali")
             return area_animals
         else:
+
+            tempo = round(area_animals / fence.area, 3)
             return tempo
         
 
@@ -115,19 +115,21 @@ f1: Fence = Fence(18, 24, "Continentale",[])
 
 flist: list[Fence] = [f1]
 print(f1.area)
-gey.add_animal(a1, f1)
+gey.add_animal(a1, f1)  #add
 print(f1.area)
 gey.add_animal(a2, f1)
 print(f1.area)
 
 for i in range(5**2):
     
-    gey.feed(a1)
+    gey.feed(a1) #feed
 
     print(f"Area animale: {a1.height*a1.width}")
     print(f"Salute animale: {a1.health}")
     print(f"Area fence dentro animal: {a1.fence.area}")
     print(f"Area fence oggetto: {f1.area}")
+
+
 
 z1: Zoo = Zoo(flist, zlist)
 
