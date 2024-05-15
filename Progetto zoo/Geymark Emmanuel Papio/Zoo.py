@@ -34,7 +34,7 @@ class ZooKeeper:
         
         #se l'area disponibile della fence è maggiore uguale all'area dell'animele (height*width) agiungi alla fence sottraendo l'area disponibile
         
-        if fence.area >= round(animal.height * animal.width, 3) and animal.preferred_habitat.lower() == fence.habitat.lower():
+        if fence.area >= animal.height * animal.width and animal.preferred_habitat.lower() == fence.habitat.lower():
             fence.animals.append(animal)
             fence.area -= animal.height * animal.width
             animal.fence = fence
@@ -46,14 +46,16 @@ class ZooKeeper:
 
     def feed(self, animal: Animal):
 
-        if round(animal.height * 2 / 100 * animal.width * 2 / 100, 3) <= animal.fence.area:
+        if animal.height * 2 / 100 * animal.width * 2 / 100 <= animal.fence.area:
             
-            # sottrarre l'area occupata dall'area residua
-            animal.fence.area = animal.fence.area - round(animal.height * 2 / 100 * animal.width * 2 / 100, 3)
+            
 
-            animal.height = round(animal.height * 102 / 100 , 3)
-            animal.width = round(animal.width * 102 / 100 , 3)
-            animal.health = round(animal.health * 101 / 100, 3)
+            animal.height = animal.height * 102 / 100
+            animal.width = animal.width * 102 / 100
+            animal.health = animal.health * 101 / 100
+
+            # sottrarre l'area occupata dall'area residua
+            animal.fence.area = animal.fence.area - animal.height * 2 / 100 * animal.width * 2 / 100
 
         else:
             print("L'animale non  può essere nutrito perchè non c'è più spazio")
@@ -65,7 +67,7 @@ class ZooKeeper:
 
         for i in fence.animals:
 
-            area_animals = area_animals + round(i.height * i.width, 3)
+            area_animals = area_animals + i.height * i.width
 
         if fence.area == 0:
 
@@ -73,7 +75,7 @@ class ZooKeeper:
             return area_animals
         else:
 
-            tempo = round(area_animals / fence.area, 3)
+            tempo = area_animals / fence.area
             return tempo
         
 
@@ -124,10 +126,10 @@ for i in range(5**2):
     
     gey.feed(a1) #feed
 
-    print(f"Area animale: {a1.height*a1.width}")
-    print(f"Salute animale: {a1.health}")
-    print(f"Area fence dentro animal: {a1.fence.area}")
-    print(f"Area fence oggetto: {f1.area}")
+    print(f"Area animale: {round(a1.height*a1.width,3)}")
+    print(f"Salute animale: {round(a1.health,3)}")
+    print(f"Area fence dentro animal: {round(a1.fence.area,3)}")
+    print(f"Area fence oggetto: {round(f1.area,3)}")
 
 
 
