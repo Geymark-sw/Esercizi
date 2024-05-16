@@ -41,15 +41,19 @@ class ZooKeeper:
 
 
     def remove_animal(self, animal: Animal, fence: Fence):
+        
+        if animal in fence.animals:
+            fence.animals.remove(animal)
 
-        fence.animals.remove(animal)
+        else:
+            print("L'animale non è presente nel recinto")
 
     def feed(self, animal: Animal):
 
-        if animal.height * 2 / 100 * animal.width * 2 / 100 <= animal.fence.area:
+        if ((animal.height * 0.02) * animal.width * 1.02) + ((animal.width * 0.02) * animal.height) <= animal.fence.area:
             
             # sottrarre l'area occupata dall'area residua
-            animal.fence.area = animal.fence.area - ((animal.height * 0.02) * animal.width * 1.02) + ((animal.width * 0.02) * animal.height * 1.02)
+            animal.fence.area = animal.fence.area - ((animal.height * 0.02) * animal.width * 1.02) + ((animal.width * 0.02) * animal.height)
                                                 #2% dell'altezza*il totale della base INCREMENTATA    per      2%larghezza*il totale dell'altezza INCREMENTATA               
 
             animal.height = animal.height * 1.02
