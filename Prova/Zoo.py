@@ -127,53 +127,6 @@ class Zoo:
             print("#"*30)
 
 
-gey: ZooKeeper = ZooKeeper("Gey", "Papio", "1234")
-
-zlist: list[ZooKeeper] = [gey]
-
-a1: Animal = Animal("Pippo", "Pupus", 25, 3, 3, "Continentale") #mettere il controllo dell'habitat, se è uguale alla fence
-a2: Animal = Animal("Topolino", "Tepus", 18, 3, 1.5, "Artico")
-a3: Animal = Animal("Paperino", "Paperninus", 25, 1.1, 1.1, "Continentale")
-
-f1: Fence = Fence(18, 24, "Continentale",[])
-
-flist: list[Fence] = [f1]
-print(f1.area)
-gey.add_animal(a1, f1)  #add
-print(f1.area)
-gey.add_animal(a2, f1)
-print(f1.area)
-gey.add_animal(a3, f1)
-print(f1.area)
-
-
-"""for i in range(5**2):
-    
-    gey.feed(a1) #feed
-    print(f"clean: {round(gey.clean(f1),3)}")
-
-    print(f"Area animale: {round(a1.height*a1.width,3)}")
-    print(f"Salute animale: {round(a1.health,3)}")
-    print(f"Area fence dentro animal: {round(a1.fence.area,3)}")
-    print(f"Area fence oggetto: {round(f1.area,3)}")"""
-
-
-
-z1: Zoo = Zoo(flist, zlist)
-
-
-
-
-z1.describe_zoo()
-gey.remove_animal(a3, f1)
-z1.describe_zoo()
-
-
-
-
-# programma scritto
-# controlla funzione feed e altre funzioni
-
 
 
 
