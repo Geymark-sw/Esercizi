@@ -1,11 +1,24 @@
+lista_invertita: list[int] = []
 
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+        
+def reverse_list(head: ListNode) -> list[int]:
+    
+    
+    
+    while head.next != None:
 
-def feed(ciao: str, bella: str):
+        reverse_list(head.next)
+        head.next = None
+    
+    
+    lista_invertita.append(head.val)
+    
 
-    print(ciao,bella,a)
+    return lista_invertita
 
-
-feed("ao","bella")
-
-
-a =2
+head = ListNode(val=1, next=ListNode(val=2,))
+print(reverse_list(head))
