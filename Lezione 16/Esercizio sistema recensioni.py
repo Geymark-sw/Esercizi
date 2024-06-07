@@ -56,14 +56,14 @@ class Media:
     
     def recensione(self) -> str:
 
-        print(f"Titolo del film: {self.get_title()}\n\
-                Voto Medio: {self.get_media()}\n\
-                Giudizio: {self.get_rate()}\n\
-                Terribile: {self.rate_percentage(1)}%\n\
-                Brutto: {self.rate_percentage(2)}%\n\
-                Normale: {self.rate_percentage(3)}%\n\
-                Bello: {self.rate_percentage(4)}%\n\
-                Grandioso: {self.rate_percentage(5)}%")
+        print(f"Titolo del film: {self.get_title()}\n"
+                f"Voto Medio: {self.get_media()}\n"
+                f"Giudizio: {self.get_rate()}\n"
+                f"Terribile: {self.rate_percentage(1)}%\n"
+                f"Brutto: {self.rate_percentage(2)}%\n"
+                f"Normale: {self.rate_percentage(3)}%\n"
+                f"Bello: {self.rate_percentage(4)}%\n"
+                f"Grandioso: {self.rate_percentage(5)}%")
         
 class Film(Media):
 
