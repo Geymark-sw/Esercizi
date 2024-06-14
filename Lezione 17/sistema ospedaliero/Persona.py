@@ -1,42 +1,42 @@
 class Persona:
 
-    def __init__(self, _first_name: str, _last_name: str) -> None:
+    def __init__(self, first_name: str, last_name: str) -> None:
         
-        if type(_first_name) == "str":
+        if type(first_name) == "str":
 
-            self._first_name: str = _first_name
+            self.__first_name: str = first_name
         else:
             print("Il nome non è una stringa")
-            self._first_name: str = None
+            self.__first_name: str = None
 
-        if type(_last_name) == "str":
+        if type(last_name) == "str":
 
-            self._last_name:str = _last_name
+            self.__last_name:str = last_name
         else:
             print("Il cognome non è una stringa")
-            self._last_name:str = None
+            self.__last_name:str = None
 
-        if isinstance(_first_name,str) and isinstance(_last_name,str):
+        if isinstance(first_name,str) and isinstance(last_name,str):
 
-            self.age: int = 0
+            self.__age: int = 0
 
         else:
 
-            self.age: int = None
+            self.__age: int = None
 
 
-    def set_first_name(self,_first_name: str):
+    def set_first_name(self,first_name: str):
 
-        if isinstance(_first_name, str):
-            self._first_name = _first_name
+        if isinstance(first_name, str):
+            self.__first_name = first_name
 
         else:
             print("Il nome inserito non è una stringa") 
 
-    def set_last_name(self,_last_name: str):
+    def set_last_name(self,last_name: str):
 
-        if isinstance(_last_name, str):
-            self._last_name = _last_name
+        if isinstance(last_name, str):
+            self.__last_name = last_name
 
         else:
             print("Il cognome inserito non è una stringa")
@@ -44,23 +44,23 @@ class Persona:
     def set_age(self, age: int):
 
         if isinstance(age, int):
-            self.age = age
+            self.__age = age
 
         else:
             print("L'età inserita non è un intero")
 
     def get_first_name(self):
 
-        return self._first_name
+        return self.__first_name
 
     def get_last_name(self):
 
-        return self._last_name
+        return self.__last_name
 
     def greet(self):
 
-        print(f"Ciao, sono {self._first_name} {self._last_name}! Ho {self.age} anni") 
+        print(f"Ciao, sono {self.__first_name} {self.__last_name}! Ho {self.__age} anni") 
 
-        
+
               
 
