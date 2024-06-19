@@ -9,8 +9,9 @@ def mergeSort(a: list[int]) -> list[int]:
 
     mid_point: int = len(a) // 2
 
-    mergeSort(a[:mid_point])
-    mergeSort(a[mid_point:])
+    left_list: list[int] = mergeSort(a[:mid_point])
+    right_list: list[int] = mergeSort(a[mid_point:])
+    result: list[int] = merge(left_list, right_list)
 
 
 def merge(list_1: list[int], list_2: list[int]) -> list[int]:
@@ -25,6 +26,10 @@ def merge(list_1: list[int], list_2: list[int]) -> list[int]:
 
             result[k] = list_2[j]
             j+=1
+
+            if j == len(list_2):
+
+                return result[:k+1] + list_1[i:]
         else:
 
             result[k] = list_1[i]
