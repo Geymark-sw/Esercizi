@@ -8,4 +8,4 @@ for i in dizionario.keys():
     print(i)
 
 for i in dizionario.values():
-    print(i)#
+    print(i)#ciao
