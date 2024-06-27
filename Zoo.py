@@ -1,3 +1,5 @@
+from Lezione_21.Roba import decorator
+
 class Fence:
     
     def __init__(self, area: float, temperature: float, habitat: str, animals: list[object]) -> None:
@@ -30,6 +32,7 @@ class ZooKeeper:
         self.surname: str = surname
         self.id: str = id
 
+    @decorator
     def add_animal(self, animal: Animal, fence: Fence):
         
         #se l'area disponibile della fence è maggiore uguale all'area dell'animele (height*width) agiungi alla fence sottraendo l'area disponibile
@@ -44,6 +47,7 @@ class ZooKeeper:
             print("Gli oggetti passati non sono del tipo corretto")
             exit(1) #visto che gli oggetti passati sono sbagliati faccio terminare il programma
 
+    @decorator
     def remove_animal(self, animal: Animal, fence: Fence):
         
         if isinstance(animal, Animal) and isinstance(fence, Fence):
@@ -55,6 +59,7 @@ class ZooKeeper:
         else:
             print("Gli oggetti passati non sono del tipo corretto")
 
+    @decorator
     def feed(self, animal: Animal):
 
         if isinstance(animal, Animal):
@@ -77,6 +82,8 @@ class ZooKeeper:
         else:
             print("L'animale non può essere nutrito perchè non è un oggetto Animale")  
 
+
+    @decorator
     def clean(self, fence: Fence) -> float :
 
         if isinstance(fence, Fence):
