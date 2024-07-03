@@ -1,24 +1,36 @@
-lista_invertita: list[int] = []
+# lista_invertita: list[int] = []
 
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
         
-def reverse_list(head: ListNode) -> list[int]:
+# def reverse_list(head: ListNode) -> list[int]:
     
     
     
-    while head.next != None:
+#     while head.next != None:
 
-        reverse_list(head.next)
-        head.next = None
+#         reverse_list(head.next)
+#         head.next = None
     
     
-    lista_invertita.append(head.val)
+#     lista_invertita.append(head.val)
     
 
-    return lista_invertita
+#     return lista_invertita
 
-head = ListNode(val=1, next=ListNode(val=2,))
-print(reverse_list(head))
+# head = ListNode(val=1, next=ListNode(val=2,))
+# print(reverse_list(head))
+
+a = 1
+
+b = a
+
+print(b)
+
+a = 2
+
+print(b)
+
+#b rimane ad 1
