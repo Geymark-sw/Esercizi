@@ -81,26 +81,6 @@ f1.aggiungi_valutazione(4)
 f1.recensione()
 
 
-        
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
