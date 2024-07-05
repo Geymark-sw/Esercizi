@@ -1,5 +1,10 @@
 users: list[str] = ["pippo","pluto","admin","topolino","jhon cena"]
 
+
+if len(users) == 0:
+    print(f"We need to find some users!!!")
+
+
 for i in users:
 
     if i == "admin":
