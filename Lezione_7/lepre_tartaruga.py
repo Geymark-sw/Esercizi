@@ -165,12 +165,14 @@ def calcola_lepre(lista_posizioni: list[str], posizione: int) -> dict:
         spostamento = -2
 
     #cambio lo stato della vecchia posizione
-    if lista_posizioni[posizione - spostamento] == "OUCH":
+
+    if num >= 1 and num <= 2:#se la lepre ha riposato, deve rimanere nella sua posizione, non deve scomparire :)
+        pass
+
+    elif lista_posizioni[posizione - spostamento] == "OUCH":
 
         lista_posizioni[posizione - spostamento] = "Tartaruga"
 
-    elif num >= 1 and num <= 2:#se la lepre ha riposato, deve rimanere nella sua posizione, non deve scomparire :)
-        pass
     else:
 
         lista_posizioni[posizione - spostamento] = "_"
