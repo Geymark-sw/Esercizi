@@ -2,9 +2,7 @@ def decorator(func):
 
     def wrapper():
 
-        import time
-
-        start = time.time()
+        print("Prima della funzione")
 
         func()
 
@@ -12,4 +10,13 @@ def decorator(func):
 
     return wrapper
 
-    
+def func():
+
+    print("ciao")
+
+
+func()
+
+func = decorator(func)   # stessa cosa di scrivere sulla definizione della funzione @nomeDecorator
+
+func()
