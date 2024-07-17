@@ -27,6 +27,16 @@ class Book:
 
         return stringa
     
+    def __eq__(self, value: object) -> bool:
+        
+        if isinstance(value,Book):
+
+            return value.isbn == self.isbn
+        
+        return False
+    
+    
+    
 
     
 
