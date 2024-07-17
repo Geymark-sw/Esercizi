@@ -102,8 +102,9 @@ print(f"{gey}\n")
 
 gey.return_book(commedia,nuova_libreria)
 
-nuova_libreria.get_books()
+#nuova_libreria.get_books()  I TEST SI FANNO CON I PRINT, QUINDI DEVONO ESSERE IMPOSTATI BENE, ALTRIMENTI SI POTREBBERO DARE PER SBAGLIATO DELLE COSE GIUSTE
 
+print("dopo rimozione")
 nuova_libreria.remove_book(commedia)
 
 

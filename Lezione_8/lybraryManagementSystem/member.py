@@ -32,9 +32,13 @@ class Member:
     
     def return_book(self,book: Book, libreria: object) -> None:
 
-        book.prestato = False
         self.borrowed_books.remove(book)
-        libreria.books.append(book)
+                     #remove non funzionava perchè book.prestato = False veniva eseguito prima di remoev e quindi l'loggetto passato era cambiato
+        for i in range(len(libreria.books)):
+
+            if book == libreria.books[i]:
+                libreria.books[i].prestato = False
+
         print("Libro restituito con successo")
         print(f"Lista libri noleggiati:")
         self.stampa_libri()
