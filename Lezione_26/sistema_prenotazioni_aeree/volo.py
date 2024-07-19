@@ -126,8 +126,9 @@ class VoloCommerciale(Volo):
 
 class VoloCharter(Volo):
 
-    def __init__(self, codice_volo: str, posti_disponibili_a: int) -> None:
+    def __init__(self, codice_volo: str, posti_disponibili_a: int, prezzo: float) -> None:
         super().__init__(codice_volo, posti_disponibili_a)
+        self.prezzo: float  = prezzo
 
     def posti_disponibili(self) -> int:
         
@@ -136,6 +137,68 @@ class VoloCharter(Volo):
     def prenota_posto(self) -> None:
         
         if self.posti_disponibili_a != 0:
+
+            self.posti_disponibili_a = 0
+            self.prenotazioni = 1
+            print(f"Volo {self.codice_volo}prenotato con successo!")
+            print(f"Prezzo: {self.prezzo} €")
+
+        else:
+
+            print(f"Impossibile prenotare il volo.\nIl volo {self.codice_volo} è già stato prenotato")
+
+
+
+
+class CompagniaAerea:
+
+    def __init__(self, nome_compagnia: str, prezzo_standard: float, flotta: list[VoloCommerciale] = []) -> None:
+
+        self.nome_compagnia: str = nome_compagnia
+        self.prezzo_standard: float = prezzo_standard
+        self.flotta: list[VoloCommerciale] = flotta
+
+    def aggiungi_volo(self, volo_commerciale: VoloCommerciale) -> None:
+
+        if volo_commerciale not in self.flotta:
+
+            self.flotta.append(volo_commerciale)
+            print(f"Volo {volo_commerciale.codice_volo} aggiunto correttamente alla flotta")
+        else:
+            print(f"Il volo {volo_commerciale.codice_volo} è già pressente nella flotta, di conseguenza non può essere aggiunto")
+
+    def rimuovi_volo(self, volo_commerciale: VoloCommerciale) -> None:
+
+        if volo_commerciale in self.flotta:
+
+            self.flotta.remove(volo_commerciale)
+            print(f"Volo {volo_commerciale.codice_volo} rimosso correttamente dalla flotta")
+
+        else:
+            print(f"Il volo {volo_commerciale.codice_volo} non è presente nella flotta, di conseguenza non può essere rimosso")
+
+
+    def mostra_flotta(self) -> None:
+        
+        print(f"Elenco flotta della compagnia aerea {self.nome_compagnia}:")
+        for i in self.flotta:
+            print(f"Volo commerciale {i.codice_volo}")
+
+    def guadagno(self) -> float:
+
+        guadagno: float = 0
+
+        for i in self.flotta:
+
+            guadagno += i.posti_economica * self.prezzo_standard
+            guadagno += i.posti_business * self.prezzo_standard * 2
+            guadagno += i.posti_prima * self.prezzo_standard * 3
+
+        return round(guadagno,2)
+    
+    
+
+
 
             
 
