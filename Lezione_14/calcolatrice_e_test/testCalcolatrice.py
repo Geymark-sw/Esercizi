@@ -26,6 +26,7 @@ class TestCalcolatrice(unittest.TestCase):
         self.assertEqual(self.calcolatrice.divisione(),3,"La divisione non è giusta")
 
 
-    
+
+
 
     
