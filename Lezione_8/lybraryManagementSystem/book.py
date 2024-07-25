@@ -34,28 +34,3 @@ class Book:
             return value.isbn == self.isbn
         
         return False
-    
-    
-    
-
-    
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

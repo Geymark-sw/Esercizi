@@ -1,6 +1,107 @@
 
-from book import Book
-from member import Member
+class Book:
+
+    
+
+    def __init__(self,title: str, author: str, isbn: int, prestato: bool) -> None:
+
+        self.title: str = title
+        self.author: str = author
+        self.isbn: int = isbn
+        self.prestato: bool = prestato
+
+    @classmethod
+    def from_string(self,stringa: str) -> object:
+
+        stringa_splittata: list[str] = stringa.split(",")
+
+        title: str = stringa_splittata[0].strip()
+        author: str = stringa_splittata[1].strip()
+        isbn: int = int(stringa_splittata[2].strip())
+        prestato: bool = False
+
+        return Book(title,author,isbn,prestato)
+    
+    def __str__(self) -> str:
+        
+        stringa: str = f"Book\nTitolo: {self.title}\nAutore: {self.author}\nISBN: {self.isbn}\nPrestato: {self.prestato}\n"
+
+        return stringa
+    
+    def __eq__(self, value: object) -> bool:
+        
+        if isinstance(value,Book):
+
+            return value.isbn == self.isbn
+        
+        return False
+
+
+
+class Member:
+    
+    
+    
+    def __init__(self,name: str, member_id: str, borrowed_books: list[Book]) -> None:
+        
+
+        self.name: str = name
+        self.member_id: str = member_id
+        self.borrowed_books: list[Book] = borrowed_books
+
+
+    @classmethod
+    def from_string(self,stringa: str) -> object: #name,member_id
+
+        stringa_splittata: list[str] = stringa.split(",")
+
+        name: str = stringa_splittata[0].strip()
+        member_id: str = stringa_splittata[1].strip()
+        borrowed_books: list[Book] = []
+
+        return Member(name,member_id,borrowed_books)
+
+    def borrow_book(self,book: Book) -> None:
+
+        self.borrowed_books.append(book)
+
+    
+    def return_book(self,book: Book, libreria: object) -> None:
+
+        self.borrowed_books.remove(book)
+                     #remove non funzionava perchè book.prestato = False veniva eseguito prima di remoev e quindi l'loggetto passato era cambiato
+        for i in range(len(libreria.books)):
+
+            if book == libreria.books[i]:
+                libreria.books[i].prestato = False
+
+        print("Libro restituito con successo")
+        print(f"Lista libri noleggiati:")
+        self.stampa_libri()
+        
+
+    def stampa_libri(self) -> str:
+            
+        stringa : str = ""
+
+        for i in self.borrowed_books:
+
+            stringa += i.__str__()
+
+        return stringa
+
+    def __str__(self) -> str:
+        
+        stringa: str = f"Member\nNome: {self.name}\nMember id: {self.member_id}\nLibri noleggiati: {self.stampa_libri()}"
+
+        return stringa
+    
+    def __eq__(self, value: object) -> bool:
+        
+        if isinstance(value,Member):
+
+            return value.member_id == self.member_id
+        return False
 
 
 
